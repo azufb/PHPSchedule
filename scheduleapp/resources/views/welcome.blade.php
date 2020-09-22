@@ -32,6 +32,7 @@
                     @endif
                 </div>
             @endif
+            <h1> My Schedule</h1>
         </div>
     </body>
 </html>
