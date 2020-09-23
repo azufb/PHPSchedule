@@ -13,7 +13,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: black;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -22,12 +22,6 @@
 
             .full-height {
                 height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
             }
 
             .position-ref {
@@ -40,33 +34,12 @@
                 top: 18px;
             }
 
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -79,22 +52,18 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+            <h1>Your Scheduler</h1>
+            <h2>
+            When you thinking about how to manage your appointments or MTG etc,
+            We know your best way to do so.
+            Here is the best solution we serve, Your Scheduler!
+            With Your Scheduler, you can manage your schedule smoothly.
+            If your appointment with new customer is set this Friday, but 
+            important MTG is held in your company is same time, same day, 
+            Friday.
+            How to manage??<br>
+            -> The Answer is "Use `Your Scheduler`!"
+            </h2>
         </div>
     </body>
 </html>
