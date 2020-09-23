@@ -3,7 +3,33 @@ namespace App\Calendar; // ファイルの設置場所
 use Carbon\Carbon; // CarbonはDateTimeに関するライブラリ
 
 class CalendarView {
-    private $carbon;
+    protected function getWeeks() {
+        $weeks = [];
+
+        // 初日
+        $firstDay = $this->carbon->copy()->firstOfMonth(); // copy()を挟むことで、影響がでないように
+
+        // 月末
+        $lastDay = $this->carbon->copy()->lastOfMonth();
+
+        // 1週目
+        $week = new CalendarWeek($firstDay->copy());
+        $weeks[] = $week;
+
+        // 作業用の日
+        $tmpDay = $firstDay->copy()->addDay(7)->startOfWeek();
+
+        // 月末までループさせる
+        while ($tmpDay->lte($lastDay)) {
+            $week = new CalendarWeek($tmpDay, count($weeks)); // 何週目かを伝えるために、count($weeks)を入れた
+            $weeks[] = $week;
+
+            // 次の週+=7日
+            $tmpDay->addDay(7);
+        }
+        return $weeks;
+    }
+    /*private $carbon;
 
     function __construct($date) {
         $this->carbon = new Carbon($date);
@@ -33,6 +59,6 @@ class CalendarView {
         $html[] = '</div>';
 
         return implode("", $html);
-    }
+    }*/
 }
 ?>
