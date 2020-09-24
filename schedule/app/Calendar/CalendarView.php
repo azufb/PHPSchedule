@@ -3,6 +3,8 @@ namespace App\Calendar; // ファイルの設置場所
 use Carbon\Carbon; // CarbonはDateTimeに関するライブラリ
 
 class CalendarView {
+    private $carbon;
+
     protected function getWeeks() {
         $weeks = [];
 
@@ -29,7 +31,6 @@ class CalendarView {
         }
         return $weeks;
     }
-    /*private $carbon;
 
     function __construct($date) {
         $this->carbon = new Carbon($date);
@@ -37,7 +38,7 @@ class CalendarView {
 
     // タイトル(○年○月形式にformatメソッドで表示を整える)
     public function getTitle() {
-        return $this->carbon->format('Y年m月');
+        return $this->carbon->format('Y年n月');
     }
 
     function render() {
@@ -55,10 +56,27 @@ class CalendarView {
         $html[] = '<th>日</th>';
         $html[] = '</tr>';
         $html[] = '</thead>';
+
+        $html[] = '<tbody>';
+
+        $weeks = $this->getWeeks();
+        foreach ($weeks as $week) {
+            $html[] = '<tr class="'.$day->getClassName().'">';
+            $days = $week->getDays();
+            foreach ($days as $day) {
+                $html[] = '<td class="'.$day->getClassName().'">';
+                $html[] = $day->render();
+                $html[] = '</td>';
+            }
+            $html[] = '</tr>';
+        }
+
+        $html[] = '</tbody>';
+
         $html[] = '</table>';
         $html[] = '</div>';
 
         return implode("", $html);
-    }*/
+    }
 }
 ?>

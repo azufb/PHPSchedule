@@ -12,8 +12,6 @@ class CalendarController extends Controller
         /* time()を使って現在時刻を取得することで、
         今月のカレンダーを作成しようとしている*/
 
-        return view('calendar', [
-            'calendar' => $calendar
-        ]);
+        return view('calendar', compact('calendar'));
     }
 }
